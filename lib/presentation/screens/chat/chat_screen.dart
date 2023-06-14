@@ -1,3 +1,4 @@
+import 'package:app_de_mensaje_joshue/presentation/widgets/chat/her_messages_bubble.dart';
 import 'package:app_de_mensaje_joshue/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,9 @@ class _ChatView extends StatelessWidget {
                 child: ListView.builder(
               itemCount: 100, //elementos que tengo
               itemBuilder: (context, index) {
-                return const MyMessageBuble();
+                return (index % 2 == 0)
+                    ? const HerMessageBuble()
+                    : const MyMessageBuble();
               },
             )),
           ],
