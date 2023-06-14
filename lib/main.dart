@@ -1,4 +1,5 @@
 import 'package:app_de_mensaje_joshue/config/theme/app_theme.dart';
+import 'package:app_de_mensaje_joshue/presentation/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 // mat
@@ -10,19 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Yes No App',
-      debugShowCheckedModeBanner: false, //takes off the debug sticker
-      theme: AppTheme(selectedColor: 5)
-          .theme(), //importamos de nuestro file app_theme
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: Center(
-          child: FilledButton.tonal(
-              onPressed: () {}, child: const Text('Click me')),
-        ),
-      ),
-    );
+        title: 'Yes No App',
+        debugShowCheckedModeBanner: false, //takes off the debug sticker
+        theme: AppTheme(selectedColor: 5)
+            .theme(), //importamos de nuestro file app_theme
+        home: const ChatScreen());
   }
 }
