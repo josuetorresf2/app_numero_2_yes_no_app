@@ -16,8 +16,8 @@ class ChatScreen extends StatelessWidget {
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsPMiOZSwCtfwjKjf1CI6cjZ4DUrpDLtPO9Q&usqp=CAU'),
           ),
         ),
-        title: const Text('Hala Madrid'),
-        //centerTitle: false,
+        title: const Text('Madrid'),
+        centerTitle: false,
       ),
       body: _ChatView(),
     );
