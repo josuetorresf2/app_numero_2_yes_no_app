@@ -1,5 +1,6 @@
 import 'package:app_de_mensaje_joshue/presentation/widgets/chat/her_messages_bubble.dart';
 import 'package:app_de_mensaje_joshue/presentation/widgets/chat/my_message_bubble.dart';
+import 'package:app_de_mensaje_joshue/presentation/widgets/shared/message_field_box.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -41,6 +42,9 @@ class _ChatView extends StatelessWidget {
                     : const MyMessageBuble();
               },
             )),
+
+            /// caja de texto de mensajes
+            const MessageFieldBox(),
           ],
         ),
       ),
