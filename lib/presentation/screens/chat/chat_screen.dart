@@ -1,3 +1,4 @@
+import 'package:app_de_mensaje_joshue/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -30,12 +31,13 @@ class _ChatView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            Expanded(child: ListView.builder(
+            Expanded(
+                child: ListView.builder(
+              itemCount: 100, //elementos que tengo
               itemBuilder: (context, index) {
-                return Text('Indice: $index');
+                return const MyMessageBuble();
               },
             )),
-            Text('Hola si topas la pantalla eres gay'),
           ],
         ),
       ),
