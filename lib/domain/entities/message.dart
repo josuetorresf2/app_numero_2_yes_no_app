@@ -7,9 +7,10 @@ class Message {
   final FromWho fromWho;
 
   /* 
-  Here we can add the time the message was send
+  Here we can add the time the message was sent
   if the message was read, etc.
   */
 
+  //constructor
   Message({required this.text, this.imageUrl, required this.fromWho});
 }
