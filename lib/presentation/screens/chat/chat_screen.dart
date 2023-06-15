@@ -1,7 +1,10 @@
+import 'package:app_de_mensaje_joshue/domain/entities/message.dart';
+import 'package:app_de_mensaje_joshue/presentation/providers/chat_provider.dart';
 import 'package:app_de_mensaje_joshue/presentation/widgets/chat/her_messages_bubble.dart';
 import 'package:app_de_mensaje_joshue/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:app_de_mensaje_joshue/presentation/widgets/shared/message_field_box.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -25,9 +28,13 @@ class ChatScreen extends StatelessWidget {
   }
 }
 
+//Private class _ChatView
 class _ChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<
+        ChatProvider>(); //pendientes de los cambios que suceden en la istancia
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -35,11 +42,12 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
                 child: ListView.builder(
-              itemCount: 100, //elementos que tengo
+              itemCount: chatProvider.messageList.length, //elementos que tengo
               itemBuilder: (context, index) {
-                return (index % 2 == 0)
-                    ? const HerMessageBuble()
-                    : const MyMessageBuble();
+                final message = chatProvider.messageList[index];
+                return (message.fromWho == FromWho.thems)
+                    ? HerMessageBuble()
+                    : MyMessageBuble(message: message);
               },
             )),
 

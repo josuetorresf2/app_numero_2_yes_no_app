@@ -6,12 +6,10 @@ class ChatProvider extends ChangeNotifier {
     Puede notificar cuando hay cambios
   */
 
-  List<Message> message = [
+  List<Message> messageList = [
     Message(text: 'Hola amor', fromWho: FromWho.mine),
     Message(text: 'Ya regresaste? ', fromWho: FromWho.mine)
   ];
 
-  Future<void> SendMessage(String text) async {
-    //TODO IMPLEMENTAR METODO
-  }
+  Future<void> SendMessage(String text) async {}
 }
