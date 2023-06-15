@@ -1,3 +1,4 @@
+import 'package:app_de_mensaje_joshue/config/helpers/get_yes_no_answer.dart';
 import 'package:app_de_mensaje_joshue/domain/entities/message.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class ChatProvider extends ChangeNotifier {
 
   // para que cada ves que se envie un mensaje, la pantalla baje
   final ScrollController chatScrollCrontroller = ScrollController();
+  final GetYesNoAnswer getYesNoAnswer = GetYesNoAnswer();
 
   List<Message> messageList = [
     Message(text: 'Hola Madrid', fromWho: FromWho.mine),
@@ -20,8 +22,16 @@ class ChatProvider extends ChangeNotifier {
 
     messageList.add(newMessage);
 
+    if (text.endsWith('?')) {
+      herReply();
+    }
+
     notifyListeners(); //si cambio, notifica a todos de este cambio
     await moveScrollToBottom(); //scroll thru screen
+  }
+
+  Future<void> herReply() async {
+    final herMessage = await getYesNoAnswer.getAnswer();
   }
 
   Future<void> moveScrollToBottom() async {
