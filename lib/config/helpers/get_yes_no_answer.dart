@@ -12,9 +12,6 @@ class GetYesNoAnswer {
 
     //the .data are the information we get from the api json
     //Mappers
-    return Message(
-        text: yesNoModel.answer,
-        fromWho: FromWho.thems,
-        imageUrl: yesNoModel.image);
+    return yesNoModel.toMessageEntity();
   }
 }
