@@ -41,7 +41,9 @@ class _ChatView extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
+                //List view controlls how the messages look
                 child: ListView.builder(
+              controller: chatProvider.chatScrollCrontroller,
               itemCount: chatProvider.messageList.length, //elementos que tengo
               itemBuilder: (context, index) {
                 final message = chatProvider.messageList[index];
@@ -53,6 +55,7 @@ class _ChatView extends StatelessWidget {
 
             /// caja de texto de mensajes
             MessageFieldBox(
+              //saves messages send my user
               //onValue: (value) => chatProvider.SendMessage(value),
               onValue: chatProvider.SendMessage,
             ),
